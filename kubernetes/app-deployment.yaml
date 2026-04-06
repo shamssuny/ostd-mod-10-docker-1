@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ostd-app
+  namespace: production
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ostd-app
+  template:
+    metadata:
+      labels:
+        app: ostd-app
+    spec:
+      containers:
+        - name: ostd-app
+          image: shamssuny/ostd-1:latest
+          ports:
+            - containerPort: 3000 
